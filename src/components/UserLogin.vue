@@ -51,6 +51,9 @@ const loginUser = async () => {
     });
     if (response.data.success) {
       localStorage.setItem("user", JSON.stringify(response.data.user));
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+      }
       console.log("Login successful, redirecting to dashboard...");
       router.push("/dashboard"); // Triggering the redirect
       console.log("Redirected to /dashboard"); // This should show in the console if the navigation is triggered
